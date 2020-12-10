@@ -1,0 +1,36 @@
+﻿@model PetsDate.Web.ViewModels.Clinic.CreateClinicInputModel
+@{ 
+    this.ViewData["Title"] = "Add new Clinic";
+}
+
+<div class="text-center">
+    <h1>@this.ViewData["Title"]</h1>
+</div>
+
+<form method="post" class="col-md-6 offset-3" enctype="multipart/form-data">
+    <section class="form-group">
+        <label asp-for="Name"></label>
+
+        <input asp-for="Name" class="form-control" />
+
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </section>
+
+    <section class="form-group">
+        <label asp-for="Location"></label>
+
+        <input asp-for="Location" class="form-control" />
+
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </section>
+
+    <section class="form-group">
+        <label asp-for="Image"></label>
+
+        <input asp-for="Image" class="form-control" />
+
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </section>
+
+    <input type="submit" class="btn btn-primary" />
+</form>

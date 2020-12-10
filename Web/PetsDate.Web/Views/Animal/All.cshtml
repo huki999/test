@@ -1,0 +1,36 @@
+﻿@model PetsDate.Web.ViewModels.Animal.AnimalListViewModel
+@{
+    this.ViewData["Title"] = "All Animals, page " + Model.PageNumber;
+}
+
+<div class="text-center h1">
+    <h1>@this.ViewData["Title"]</h1>
+</div>
+
+<div class="container row justify-content-xl-center">
+
+    @foreach (var animal in this.Model.Animals)
+    {
+        <div class="card col-md-3 mt-4 mr-4" style="width: 18rem">
+            <img class="card-img-top" src="@animal.ImageUrl" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@animal.Name</h5>
+                <p class="card-text">Age: @animal.Age</p>
+                <p class="card-text">Color: @animal.Color</p>
+                <p class="card-text">Weight: @animal.Weight</p>
+                <p class="card-text">Category: @animal.CategoryName</p>
+                <p class="card-text">AnimalId: @animal.Id</p>
+
+
+                <a class="btn btn-primary mb-2" asp-area="" asp-controller="Animal" asp-action="AddImages" asp-route-id="@animal.Id">Add Images</a>
+
+                <a class="btn btn-primary" asp-area="" asp-controller="Animal" asp-action="ImagesCollection" asp-route-id="@animal.Id">Collection of Images</a>
+
+            </div>
+        </div>
+    }
+</div>
+
+<partial name="_PagingPartial" model="@Model" />
+
+

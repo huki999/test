@@ -1,0 +1,75 @@
+﻿@using PetsDate.Common
+@model PetsDate.Web.ViewModels.Home.IndexViewModel
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+
+    <div class="container row justify-content-xl-center">
+
+        @foreach (var user in this.Model.Users)
+        {
+            <div class="card col-md-3 mt-4 mr-4" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">@user.UserName</h5>
+                    <p class="card-text">Email: @user.Email</p>
+                    @if (user.PhoneNumber != null)
+                    {
+                        <p class="card-text">Color: @user.PhoneNumber</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+    <h2>We have:</h2>
+    <ul class="list-group">
+        <li class="list-group-item">
+            Users: @Model.UsersCount
+        </li>
+
+        <li class="list-group-item">
+            Animals: @Model.AnimalsCount
+        </li>
+
+        <li class="list-group-item">
+            Clinics: @Model.ClinicCount
+        </li>
+
+        <li class="list-group-item">
+            Publications: @Model.PublicationCount
+        </li>
+
+        <li class="list-group-item">
+            Events: @Model.EventsCount
+        </li>
+
+        <li class="list-group-item">
+            Hotels: @Model.HoteslCount
+        </li>
+
+        <li class="list-group-item">
+            Sos Signals: @Model.SosSignslsCount
+        </li>
+
+        <li class="list-group-item">
+            Categories: @Model.CategoriesCount
+        </li>
+    </ul>
+
+    @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Administrator"))
+    {
+        <a class="btn btn-danger" asp-area="Administration" asp-controller="Edit" asp-action="Index">Admin Page</a>
+    }
+
+    <hr />
+
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-info" asp-controller="Home" asp-action="Chat">chat page</a>
+    }
+
+</div>
