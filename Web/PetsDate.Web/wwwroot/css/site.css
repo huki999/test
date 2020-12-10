@@ -110,12 +110,17 @@ a {
 }
 
 .form-control {
-    padding: 3px 0;
+    padding: 6px 0;   
+    text-align: center;
 }
 
-h1 {
+ h1 {
     font-family: 'Langar', cursive;
     color: rgba(67,101,146,1);
     font-size: 3.5rem;
     font-weight: 300;
 }
+
+ .navbar-collapce {
+     padding-left: 3px;
+ }
